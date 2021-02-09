@@ -1,0 +1,63 @@
+<program __id_admin__='57' __id2__='1'>
+	<functiondefs name='aave' __id2__='2'>
+		<functiondef name='aave_batch' __id2__='3'>
+			<do __id2__='4'>
+				<service call='ethereum_wallet_str' __id2__='41'>
+					<arg content='wallet' __id2__='42'/>
+				</service>
+				<service call='print_service' __id2__='7'>
+					<arg content='"\n\nAAVE batch\n"' __id2__='8'/>
+				</service>
+				<service call='print_service' __id2__='9'>
+					<arg content='"AAVE deposit 0.1 ETH\n\n"' __id2__='10'/>
+				</service>
+				<service call='ethereum_contract_call' __id2__='11'>
+					<arg content='"0xf8ac10e65f2073460aad5f28e1eabe807dc287cf"' __id2__='12'/>
+					<arg content='"300000"' __id2__='13'/>
+					<arg content='"depositETH(address,uint16)"' __id2__='14'/>
+					<arg content='"0.1"' __id2__='15'/>
+					<do name='data' __id2__='16'>
+						<service call='ethereum_contract_call_data_address_hex' __id2__='17'>
+							<arg content='wallet' __id2__='18'/>
+						</service>
+						<service call='ethereum_contract_call_data_str_dec' __id2__='19'>
+							<arg content='"0"' __id2__='20'/>
+						</service>
+					</do>
+				</service>
+				<service call='print_service' __id2__='45'>
+					<arg content='"\n\nAAVE approve\n\n"' __id2__='46'/>
+				</service>
+				<service call='ethereum_contract_call' __id2__='47'>
+					<arg content='"0xf8ac10e65f2073460aad5f28e1eabe807dc287cf"' __id2__='48'/>
+					<arg content='"300000"' __id2__='49'/>
+					<arg content='"approve(address,uint256)"' __id2__='50'/>
+					<do name='data' __id2__='51'>
+						<service call='ethereum_contract_call_data_address_hex' __id2__='56'>
+							<arg content='wallet' __id2__='57'/>
+						</service>
+						<service call='ethereum_contract_call_data_str_hex' __id2__='52'>
+							<arg content='"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"' __id2__='53'/>
+						</service>
+					</do>
+				</service>
+				<service call='print_service' __id2__='43'>
+					<arg content='"\n\nAAVE withdraw 0.1 ETH\n\n"' __id2__='44'/>
+				</service>
+				<service call='ethereum_contract_call' __id2__='23'>
+					<arg content='"0xf8ac10e65f2073460aad5f28e1eabe807dc287cf"' __id2__='24'/>
+					<arg content='"300000"' __id2__='25'/>
+					<arg content='"withdrawETH(uint256,address)"' __id2__='26'/>
+					<do name='data' __id2__='28'>
+						<service call='ethereum_contract_call_data_str_hex' __id2__='35'>
+							<arg content='"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"' __id2__='36'/>
+						</service>
+						<service call='ethereum_contract_call_data_address_hex' __id2__='31'>
+							<arg content='wallet' __id2__='32'/>
+						</service>
+					</do>
+				</service>
+			</do>
+		</functiondef>
+	</functiondefs>
+</program>

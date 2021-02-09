@@ -1,0 +1,24 @@
+<program __id_admin__='89' __id2__='1'>
+	<main name='main' __id2__='4'>
+		<return type='int'/>
+		<do __id2__='5'>
+			<service call='gen_new' __id2__='70'>
+				<arg content='prog' __id2__='71'/>
+				<arg content='prog_c_type*' __id2__='72'/>
+			</service>
+			<assign name='prog.print_service_out' content='1' __id2__='85'/>
+			<service call='print_service' __id2__='78'>
+				<arg content='"Marketmake\n"' __id2__='79'/>
+			</service>
+			<service call='ethereum_init_default' __id2__='80'>
+				<do __id2__='81'>
+					<service call='ethereum_wallet_info' __id2__='82'>
+					</service>
+					<function call='aave_batch' __id2__='83'>
+					</function>
+				</do>
+			</service>
+			<return content='0' __id2__='84'/>
+		</do>
+	</main>
+</program>
